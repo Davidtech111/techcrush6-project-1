@@ -35,9 +35,9 @@ uint public totalFee;
         _;
     }
     function createAccount(string memory _name) public payable onlyBankOwner(bankOwner) {
-        if (msg.value < FEE) {
-            revert FEEIsLow(msg.value)
-        }
+       if (msg.value < FEE) {
+    revert FeeIsLow(msg.value);
+}
 totalFee += msg.value;
         differentAccounts[msg.sender] = accounts({
             name: _name,
